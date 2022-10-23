@@ -1,0 +1,107 @@
+
+/* Home app icon color */
+#app-home .menu-icon-companies .menu-icon-inner {
+	background-color: #f2b31d;
+}
+
+#app-companies > .app-inner {
+    background-color: #fefefe;
+    color: #454545;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+#app-companies .companies-header {
+	display: flex;
+	align-items: center;
+	padding: 15px;
+	border-bottom: 1px solid #e2e2e2;
+	background-color: #fefefe;
+}
+
+#app-companies .companies-header > h2 {
+    margin: 0;
+}
+
+/* Company list */
+#app-companies ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+}
+
+#app-companies ul > li {
+    padding: 15px;
+    margin: 0;
+    background-color: #fafafa;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+#app-companies ul > li.selected {
+    color: #1da1f2;
+}
+
+#app-companies ul > li > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#app-companies ul > li > div > span:last-child {
+    font-size: 0.8em;
+}
+
+.companyValueSpan.positive {
+    color: #61c861;
+}
+
+.companyValueSpan.negative {
+    color: #e62e2e;
+}
+
+/* Company Item */
+#company_item {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #fefefe;
+}
+
+.companyWorthText {
+    padding: 15px;
+    color: #1da1f2;
+    font-weight: 100;
+    font-size: 1.7em;
+    text-align: center;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    background-color: #fafafa;
+}
+
+/* Company info */
+.company_info > div {
+    padding: 8px 15px;
+    border-bottom: 1px solid #eee;
+}
+.company_info > div > span:last-child {
+    display: block;
+    font-size: 0.8em;
+    color: #444;
+}
+.companyWorthText + span {
+    display: block;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    font-weight: 100;
+    color: #666;
+}
+
+/* Chart */
+canvas {
+    margin: -15px 0;
+}

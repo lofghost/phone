@@ -1,0 +1,848 @@
+    <html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/app.css" type="text/css" />
+        <link rel="stylesheet" href="css/settings.css" type="text/css" />
+        <link rel="stylesheet" href="css/car.css" type="text/css" />
+        <link rel="stylesheet" href="css/darkweb.css" type="text/css" />
+        <link rel="stylesheet" href="css/camera-app.css" type="text/css" />
+        <link rel="stylesheet" href="css/images-app.css" type="text/css" />
+        <link rel="stylesheet" href="css/spotify.css" type="text/css" />
+        <link rel="stylesheet" href="css/companies.css" type="text/css" />
+        <link rel="stylesheet" href="css/twitter.css" type="text/css" />
+        <link rel="stylesheet" href="css/font-awesome.css" type="text/css" />
+        <link rel="stylesheet" href="css/animate.css" type="text/css" />
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"
+            integrity="sha256-CfcERD4Ov4+lKbWbYqXD6aFM9M51gN4GUEtDhkWABMo=" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js" integrity="sha256-CfcERD4Ov4+lKbWbYqXD6aFM9M51gN4GUEtDhkWABMo=" crossorigin="anonymous"></script> -->
+
+    </head>
+
+    <body>
+
+        <div id="phone" class="animated slideInUp">
+
+            <div id="screen">
+
+                <div id="notification-div" style="display: none;">
+                    <i class="fa fa-info fa-fw"></i>
+                    <span> Du delade din position </span>
+                </div>
+
+                <audio autoplay></audio>
+
+                <div class="status-bar">
+                    <i class="fa fa-plane fa-fw plane" style="display: none;"></i>
+                    <ul class="signal">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <span class="network">3 4G</span>
+                    <div class="time"><span class="hour">0</span>:<span class="minute">00</span></div>
+                    <div class="battery"><span id="phoneBattery" class="percentage">100%</span><b id="batteryIcon"
+                            class="fa fa-battery-full fa-fw"></b>
+                    </div>
+                </div>
+
+                <div id="app-home" class="app">
+
+                    <div class="app-inner">
+
+                        <div class="menu-icon menu-icon-contacts" data-app="contacts">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-address-book fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Kontakter</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-messages" data-app="messages">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-comment fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">SMS</div>
+                            <div class="counter">5</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-camera-app" data-app="camera-app">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-camera fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Kamera</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-images-app" data-app="images-app">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-image fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Bilder</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-police" data-app="contact-action-message"
+                            data-args="{&quot;name&quot;: &quot;Polisen&quot;, &quot;number&quot;: &quot;police&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-shield fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Polisen</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-ambulance" data-app="contact-action-message"
+                            data-args="{&quot;name&quot;: &quot;Sjukvården&quot;, &quot;number&quot;: &quot;ambulance&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-ambulance fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Sjukvården</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-journalist" data-app="contact-action-message"
+                            data-args="{&quot;name&quot;: &quot;forsakring&quot;, &quot;number&quot;: &quot;forsakring&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-file-text fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Försäkringsbolaget</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-bank" data-app="bank">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-credit-card-alt fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Swish</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-cardealer" data-app="contact-action-message"
+                            data-args="{&quot;name&quot;: &quot;Granqvist's&quot;, &quot;number&quot;: &quot;cardealer&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-cab fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Bilförsäljare</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-realestateagent" data-app="contact-action-message"
+                            data-args="{&quot;name&quot;: &quot;Realestateagent&quot;, &quot;number&quot;: &quot;maklare&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-home fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Mäklare</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-lawyer" data-app="contact-action-message"
+                            data-args="{&quot;name&quot;: &quot;Bennys&quot;, &quot;number&quot;: &quot;bennys&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-paint-brush fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Bennys</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-mecano" data-app="contact-action-message"
+                            data-args="{&quot;name&quot;: &quot;Autoexperten&quot;, &quot;number&quot;: &quot;mecano&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-wrench fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Mekaniker</div>
+                        </div>
+
+                        <div class="menu-icon menu-icon-taxi" data-app="contact-action-message"
+                            data-args="{&quot;name&quot;: &quot;Taxi&quot;, &quot;number&quot;: &quot;taxi&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-cab fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Taxi</div>
+                        </div>
+
+
+
+
+
+                        <!-- <div class="menu-icon menu-icon-car" data-app="your-car"
+                            data-args="{&quot;name&quot;: &quot;car&quot;, &quot;number&quot;: &quot;car&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-car fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Dina Bilar</div>
+                        </div> -->
+                        <!-- <div class="menu-icon menu-icon-car-play" data-app="car-play" data-args="{&quot;name&quot;: &quot;car-play&quot;, &quot;number&quot;: &quot;car-play&quot;}">
+                            <div class="menu-icon-inner">
+                                <img src="img/apps/icons/spotify-brand.png" />
+                            </div>
+                            <div class="menu-icon-label">Spotify</div>
+                        </div> -->
+                        <!-- <div class="menu-icon menu-icon-darkweb" style="display: none;" data-app="darkweb" data-args="{&quot;name&quot;: &quot;darkweb&quot;, &quot;number&quot;: &quot;darkweb&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-user-secret fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Darkweb</div>
+                        </div> -->
+
+                        <div class="menu-icon menu-icon-twitter" style="display: none;" data-app="twitter"
+                            data-args="{&quot;name&quot;: &quot;darkweb&quot;, &quot;number&quot;: &quot;twitter&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-twitter fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Twitter</div>
+                            <div class="counter">2</div>
+                        </div>
+
+
+                        <div class="menu-icon menu-icon-settings" data-app="settings"
+                            data-args="{&quot;name&quot;: &quot;settings&quot;, &quot;number&quot;: &quot;settings&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-cog fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Inställningar</div>
+                            <div class="counter">1</div>
+                        </div>
+
+                        <!--<div class="menu-icon menu-icon-companies" style="display: none;" data-app="companies" data-args="{&quot;name&quot;: &quot;companies&quot;, &quot;number&quot;: &quot;twitter&quot;}">
+                            <div class="menu-icon-inner">
+                                <i class="fa fa-line-chart fa-fw"></i>
+                            </div>
+                            <div class="menu-icon-label">Företag</div>
+                        </div>!-->
+
+                    </div>
+
+                </div>
+
+                <div id="app-incoming-call" class="app">
+                    <div class="action-call-background"></div>
+                    <div class="app-inner">
+
+                        <div class="contact-infos">
+                            <div class="contact-name"></div>
+                            <div class="contact-number"></div>
+                        </div>
+
+                        <div class="contact-actions-wrapper">
+                            <div class="contact-action action-accept" data-action="accept">
+                                <i class="fa fa-phone fa-fw"></i>
+                                <span>Acceptera</span>
+                            </div>
+                            <div class="contact-action action-deny" data-action="deny">
+                                <i class="fa fa-phone fa-fw"></i>
+                                <span>Neka</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="app-contacts" class="app">
+
+                    <div class="app-inner">
+
+
+                        <!-- Contacts -->
+                        <div class="contact-actions">
+                            <h2>Kontakter </h2>
+                            <div class="add-contact"><i class="fa fa-user-plus fa-lg"></i></div>
+                        </div>
+
+                        <div class="contact-me">
+                            <div class="contact">
+                                <div class="contact-name">Telefonnummer:</div>
+                                <div class="contact-number"></div>
+                            </div>
+                        </div>
+
+                        <div class="contact-list"></div>
+
+                        <!-- Favorites -->
+                        <div class="contacts-favorites" style="display: none;">
+
+                            <div class="contacts-header">
+                                <h2> Favoriter </h2>
+                                <i class="fa fa-star fa-fw fa-lg"></i>
+                            </div>
+
+
+                            <div class="contacts-favorites-list">
+
+                                <ul></ul>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Senaste -->
+                        <div class="contacts-latest" style="display: none;">
+
+                            <div class="contacts-header">
+                                <h2> Senaste </h2>
+                                <i class="fa fa-clock-o fa-fw fa-lg"></i>
+                            </div>
+
+                            <div class="contacts-latest-list">
+
+                                <ul></ul>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Knappsats -->
+                        <div class="contacts-keypad" style="display: none;">
+
+                            <div class="contacts-header">
+                                <h2> Knappsats </h2>
+                                <i class="fa fa-hashtag fa-fw fa-lg"></i>
+                            </div>
+
+                            <p id="keypadNumber"></p>
+
+                            <div id="keypad"></div>
+
+                            <div class="callButtonDiv">
+                                <i class="fa fa-phone fa-fw fa-2x rowSelectable callkey"></i>
+
+                                <div class="arrow-left"></div>
+                                <i class="fa fa-times fa-fw fa-lg rowSelectable keypadKey" data-key="backspace"></i>
+                            </div>
+
+                        </div>
+
+                        <!-- Bottom actions to change category -->
+                        <div class="contact-bottom-actions">
+
+                            <div class="category" data="favorites">
+                                <i class="fa fa-star fa-fw fa-lg"></i>
+                                <span> Favoriter </span>
+                            </div>
+                            <div class="category" data="latest">
+                                <i class="fa fa-clock-o fa-fw fa-lg"></i>
+                                <span> Senaste </span>
+                            </div>
+                            <div class="category" data="contacts">
+                                <i class="fa fa-users fa-fw fa-lg"></i>
+                                <span> Kontakter </span>
+                            </div>
+                            <div class="category" data="keypad">
+                                <i class="fa fa-hashtag fa-fw fa-lg"></i>
+                                <span> Knappsats </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="app-contact-add" class="app">
+
+                    <div class="app-inner">
+                        <div>
+                            <h2> Ny kontakt </h2>
+                        </div>
+                        <div class="add-contact-wrapper">
+                            <div><input type="text" name="add-contact-name" placeholder="Namn" /></div>
+                            <div><input type="number" name="add-contact-number" max="99999" placeholder="Telefonnummer" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="app-contact-actions" class="app">
+
+                    <div class="app-inner">
+
+                        <div class="contact-infos">
+                            <div class="contact-image">DA</div>
+                            <div class="contact-name"></div>
+
+                            <div class="contact-actions-wrapper">
+                                <div class="contact-action action-call" data-action="call">
+                                    <i class="fa fa-phone fa-fw"></i>
+                                </div>
+                                <div class="contact-action action-message" data-action="message">
+                                    <i class="fa fa-envelope fa-fw"></i>
+                                </div>
+                                <div class="contact-action action-message" data-action="favorite">
+                                    <i class="fa fa-star fa-fw"></i>
+                                </div>
+                                <div class="contact-action action-message" data-action="remove">
+                                    <i class="fa fa-trash fa-fw"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="contact-info-div">
+
+                            <div class="contact-info-subdiv">
+                                <span>Telefonnummer</span>
+                                <div class="contact-number"></div>
+                            </div>
+
+                            <div class="contact-info-subdiv">
+                                <span>Namn</span>
+                                <div class="contact-name"></div>
+                            </div>
+
+                            <div class="contact-info-subdiv">
+                                <span>Favorit</span>
+                                <div class="contact-is-favorite"></div>
+                            </div>
+
+                            <div class="contact-info-subdiv single">
+                                <div class="share-my-location contact-action" data-action="share-location">Dela min plats
+                                </div>
+                            </div>
+
+                            <div class="contact-info-subdiv single contact-action new-contact" data-action="new-contact">
+                                <div>Skapa ny kontakt</div>
+                            </div>
+                            <div class="contact-info-subdiv single">
+                                <div class="block-this-number contact-action" data-action="block-number">Blockera den här
+                                    uppringaren</div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div id="app-contact-action-call" class="app">
+                    <div class="action-call-background"></div>
+                    <div class="app-inner">
+
+                        <div class="contact-infos">
+                            <div>
+                                <div class="contact-name"></div>
+                                <div class="contact-number" style="display: none;"></div>
+
+                                <div class="loader">
+                                    <div class="info">Samtal pågår</div>
+                                </div>
+                            </div>
+
+                            <div class="contact-image">q</div>
+                        </div>
+
+
+                        <div class="call-actions">
+                            <div class="call-action" data-action="audio-off">
+                                <div>
+                                    <i class="fa fa-volume-up fa-2x audio-off-action"></i>
+                                </div>
+                                <span>parkera</span>
+                            </div>
+                            <div class="call-action" data-action="add-call">
+                                <div>
+                                    <i class="fa fa-plus fa-2x add-call-action"></i>
+                                </div>
+                                <span>lägg till</span>
+                            </div>
+                            <div class="call-action" data-action="mute">
+                                <div>
+                                    <i class="fa fa-microphone fa-2x mute-action"></i>
+                                </div>
+                                <span>kontakt</span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="call-action end-call" data-action="end-call">
+                            <i class="fa fa-phone fa-2x"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="app-contact-action-message" class="app">
+
+                    <div class="app-inner">
+
+                        <div class="message-container"></div>
+
+                        <div class="message-input">
+                            <!-- <i class="fa fa-check-square-o fa-fw fa-lg"></i> -->
+                            <!-- <i class="fa fa-square-o fa-fw fa-lg"></i> -->
+                            <textarea type="text" name="message" placeholder="iMessage"></textarea>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="app-messages" class="app">
+
+                    <div class="app-inner">
+
+                        <div class="messages-header">
+                            <h2>Meddelanden</h2>
+                            <i class="fa fa-comment fa-fw fa-lg"></i>
+                        </div>
+
+                        <div class="contact-list"></div>
+
+                    </div>
+
+                </div>
+
+                <div id="app-camera-app" class="app">
+                    <div class="app-inner">
+                        <div class="menu-wrapper">
+                            <div class="menu-header">
+                                <ul>
+                                    <li class="camera-app-header-item">SLO-MO</li>
+                                    <li class="camera-app-header-item">LANDSCAPE</li>
+                                    <li class="camera-app-header-item active" data-action="take_photo">PHOTO</li>
+                                    <li class="camera-app-header-item">PORTRAIT</li>
+                                    <li class="camera-app-header-item">SQUARE</li>
+                                </ul>
+                                <div class="ul-shadow"></div>
+                            </div>
+                            <div class="menu-content">
+                                <div class="menu-content-image camera-app-content-item" data-action="open_images_app"></div>
+                                <div class="menu-content-button camera-app-content-item" data-action="take_photo"></div>
+                                <div class="menu-content-switchButton camera-app-content-item" data-action="switch_camera">
+                                    <img src="img/apps/icons/rotate-camera.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="app-images-app" class="app">
+                    <div class="app-inner">
+                        <div id="image-holder"></div>
+                        <div class="header">
+                            <h2>Bilder</h2>
+                        </div>
+                        <div class="wrapper">
+                            <ul class="main-list"></ul>
+                        </div>
+                        <div class="image-menu hide">
+                            <i class="fa fa-paper-plane fa-fw fa-lg active" data-action="send_image"></i>
+                            <i class="fa fa-trash fa-fw fa-lg" data-action="remove_image"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="app-bank" class="app">
+
+                    <div class="app-inner">
+
+                        <div class="bank-header">
+                            <h2> Swish </h2>
+                        </div>
+
+                        <div class="bank-input-div">
+                            <span> Mottagare </span>
+                            <input type="text" placeholder="Mottagare" data-action="move" />
+                        </div>
+
+                        <div class="bank-input-div">
+                            <span> Belopp </span>
+                            <input type="text" placeholder="Belopp" data-action="move" />
+                        </div>
+
+                        <div class="button-container">
+                            <div class="button" data-action="transfer">Skicka</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="app-bank-transfer" class="app">
+
+                    <div class="app-inner">
+                        <div class="contact-list"></div>
+                    </div>
+
+                </div>
+
+                <div id="app-settings" class="app">
+                    <div class="app-inner">
+                        <i class="fa fa-fw fa-chevron-left chevronBack" style="display: none;"></i>
+                        <span class="title">Settings</span>
+                        <div class="settingsListWrapper">
+                            <ul></ul>
+                        </div>
+                        <div class="submenuDiv" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div id="app-your-car" class="app">
+                    <div class="app-inner">
+                        <i class="fa fa-lg fa-bars changeCarButton menuItem"> </i>
+                        <div class="spinner">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+                            <span class="loadingSpan"> Laddar bilar </span>
+                        </div>
+                        <div id="no-car-found-div" style="display: none;">
+                            <span>Ingen bil hittades</span>
+                            <span class="noCarFoundText">Tyvärr kunde vi inte hitta någon bil registerad i ditt namn.
+                                Vänligen besök närmsta bilhandlare och inhandla ett fordon eller försök igen vid ett senare
+                                tillfälle. </span>
+                            <span class="noCarFoundText2">Om du tror detta är ett misstag kan du söka efter bilar i din
+                                närhet. </span>
+                            <button class="find-car-near-button menuItem"> Sök omkring dig </button>
+                            <button id="find-car-near-back-button" class="menuItem" style="display: none;"> Återgå </button>
+                        </div>
+                        <div class="your-car-main">
+                            <div class="carHeadInfo">
+                                <span class="carModelSpan unsel">Casco</span>
+                                <h1>40GUF768</h1>
+                            </div>
+                            <!--<div class="listWrapperDiv warningIcon">
+                                <div>
+                                    <i id="warning-message-icon" class="fa fa-lg fa-warning"></i>
+                                </div>
+                                <span class="engineDamagedSpan">Skadad motor</span>
+                            </div>
+                            <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span>Delade nycklar</span>
+                                    <h2 id="sharedKeys">2 aktiva</h2>
+                                </div>
+                            </div> -->
+                            <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span>Status</span>
+                                    <h2 id="lockStatus">Okänd</h2>
+                                </div>
+                            </div>
+                            <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span>Motor</span>
+                                    <h2 id="car-engine">Avstängd</h2>
+                                </div>
+                            </div>
+                            <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span>Kartan</span>
+                                    <h2 id="show-on-map">Visa på kartan</h2>
+                                </div>
+                            </div>
+                            <!-- <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span >Tuta</span>
+                                    <h2 id="car-alarm">Testa tutan lite</h2>
+                                </div>
+                            </div>
+                            <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span >Dörrar</span>
+                                    <h2 id="car-doors">Testa tutan lite</h2>
+                                </div>
+                            </div>
+                            <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span >Drivmedel</span>
+                                    <h2 id="car-fuel">Okänd</h2>
+                                </div>
+                            </div>
+                            <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span >Skick</span>
+                                    <h2 id="condition">100%</h2>
+                                </div>
+                            </div>
+                            <div class="listWrapperDiv menuItem small">
+                                <div>
+                                    <h2 id="request-mechanic">Tillkalla mekaniker</h2>
+                                </div>
+                            </div>
+                            <div class="listWrapperDiv menuItem small">
+                                <div>
+                                    <h2 id="request-towing">Tillkalla bärgare</h2>
+                                </div>
+                            </div>
+                            <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span>Smutsnivå</span>
+                                    <h2 id="dirtlevel">72%</h2>
+                                </div>
+                            </div>-->
+                            <div class="listWrapperDiv menuItem">
+                                <div>
+                                    <span>Uppdatera</span>
+                                    <h2 id="update-current-vehicle">Uppdatera status</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="select-your-car">
+                            <span> Välj din bil </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="app-car-play" class="app">
+                    <div class="app-inner">
+                        <div id="car-play-main">
+                            <div class="titleAndIconHolder">
+                                <img src="img/apps/icons/spotify-brand.png" />
+                                <h1> Spotify</h1>
+                            </div>
+                            <div class="spotifyButtonHolder">
+                                <button id="spotifyRegisterButton">Registrera dig gratis</button>
+                                <button id="spotifyLoginButton">Logga in</button>
+                            </div>
+                        </div>
+                        <div id="player" style="position: absolute; top: -9999px; left: -9999px;"></div>
+                        <!-- <audio id="youtube" autoplay controls loop></audio> -->
+                    </div>
+                </div>
+                <div id="app-darkweb" class="app">
+                    <div class="app-inner">
+                        <div id="chatwindow"></div>
+                        <input type="text" placeholder="Meddelande.." />
+                    </div>
+                </div>
+
+                <div id="app-dead" class="app">
+                    <div class="app-inner">
+                        <img src="./img/deadBackground.png">
+                    </div>
+                </div>
+
+                <div id="app-twitter" class="app">
+                    <div class="app-inner">
+
+                        <i class="fa fa-twitter fa-lg mainIcon fa-2x" style="display: none;"> </i>
+                        <div class="twitterMainDiv">
+                            <h2>Se vad som händer i världen just nu.</h2>
+                            <button class="iterableListItem" id="getGoingBtn">Kom igång</button>
+                        </div>
+
+                        <div id="registerDiv" style="display: none;">
+                            <span class="avbrytSpan iterableListItem"> Avbryt </span>
+                            <h2> Skaffa ett konto </h2>
+                            <div class="inputDiv iterableListItem">
+                                <input spellcheck="false" id="tweetNameInput" type="text" placeholder="Namn" />
+                                <i class="fa fa-check fa-lg" style="display: none;"> </i>
+                            </div>
+                            <div class="inputDiv iterableListItem">
+                                <span id="imgurSpan"></span>
+                                <input spellcheck="false" id="tweetImgInput" type="text" placeholder="Profilbild" />
+                                <i class="fa fa-check fa-lg" style="display: none;"> </i>
+                            </div>
+                            <button id="registerTwitterBtn" class="iterableListItem"> Registrera dig </button>
+                        </div>
+
+                        <div id="twitterFeed" style="display: none;">
+                            <div class="twitterFeedHeader">
+                                <img src="" alt="DA" />
+                                <span>Feed</span>
+                                <!-- <i class="fa fa-plus fa-2x"> </i> -->
+                                <img src="./img/apps/icons/post.png" alt="+">
+                            </div>
+
+                            <ul id="twitterFeedList">
+
+                            </ul>
+                        </div>
+
+                        <div id="composeTweet" style="display: none;">
+                            <div class="twitterFeedHeader">
+                                <i class="fa fa-times fa-lg"> </i>
+                                <button> Tweeta </button>
+                            </div>
+                            <div class="composeTweetDiv">
+                                <img src="" alt="IMG" />
+                                <textarea spellcheck="false" type="text" placeholder="Vad händer?"
+                                    maxlength="140"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="app-bank-transfer-menu" class="app">
+
+                    <div class="app-inner">
+
+                        <div class="transfer-wrapper">
+                            <div><input type="number" name="transfer-amount" placeholder="Amount" /></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="app-companies" class="app">
+
+                    <div class="app-inner">
+                        <div class="spinner">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+                            <span class="loadingSpan"> Laddar företag </span>
+                        </div>
+
+                        <div class="companies-header" style="display: none;">
+                            <h2> Marknadsöversikt </h2>
+                        </div>
+
+                        <ul id="company_list"></ul>
+
+                        <div id="company_item" style="display: none;">
+                            <div class="companies-header">
+                                <h2></h2>
+                            </div>
+                            <h2 class="companyWorthText"></h2>
+
+                            <span>Företagsutveckling</span>
+                            <canvas id="company_chart" width="242px" height="160px"></canvas>
+
+                            <div class="company_info">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <!-- <script src="nui://game/ui/jquery.js" type="text/javascript"></script> -->
+            <script src="scripts/mustache.min.js"></script>
+            <script src="http://www.youtube.com/player_api"></script>
+
+            <script src="scripts/app.js"></script>
+            <script src="scripts/apps/home.js"></script>
+            <script src="scripts/apps/messages.js"></script>
+            <script src="scripts/apps/incoming-call.js"></script>
+            <script src="scripts/apps/settings.js"></script>
+            <script src="scripts/apps/darkweb.js"></script>
+            <script src="scripts/apps/twitter.js"></script>
+            <script src="scripts/apps/camera-app.js"></script>
+            <script src="scripts/apps/images-app.js"></script>
+            <script src="scripts/apps/car-app.js"></script>
+            <script src="scripts/apps/car-play.js"></script>
+            <script src="scripts/apps/contacts.js"></script>
+            <script src="scripts/apps/companies.js"></script>
+            <script src="scripts/apps/contact-add.js"></script>
+            <script src="scripts/apps/contact-actions.js"></script>
+            <script src="scripts/apps/contact-action-call.js"></script>
+            <script src="scripts/apps/contact-action-message.js"></script>
+            <script src="scripts/apps/bank.js"></script>
+            <script src="scripts/apps/bank-transfer.js"></script>
+            <script src="scripts/apps/bank-transfer-menu.js"></script>
+            <script src="scripts/rtc.js"></script>
+    </body>
+
+    </html>

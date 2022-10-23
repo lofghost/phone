@@ -1,0 +1,114 @@
+#app-camera-app .app-inner {
+	padding: 0;
+}
+
+.menu-icon-camera-app .menu-icon-inner {
+	background: linear-gradient(to top right, #383c44, #353535);
+}
+
+/* Menu */
+#app-camera-app .menu-wrapper {
+  width: 100%;
+  height: 90px;
+  background-color: #131313;
+  position: absolute;
+  bottom: 0;
+}
+
+/* Menu header */
+#app-camera-app .menu-header {
+  text-align: center;
+  width: 100%;
+  height: 28px;
+  position: relative;
+}
+
+/* Menu header list */
+#app-camera-app .menu-header ul {
+  transition: 700ms;
+  position: absolute;
+  left: -50px;
+  width: 140%;
+  overflow: hidden;
+  list-style: none;
+  color: #fefefe;
+  margin: 0;
+  padding: 7px 0;
+  font-size: 12px;
+  word-spacing: 12px;
+}
+
+.ul-shadow {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  background: linear-gradient(to right, #111 0,rgba(22, 22, 22, 0) 48%, rgba(22, 22, 22, 0) 52%, #111 100%);
+}
+
+
+/* Menu header list items */
+#app-camera-app .menu-header li.active {
+  color: #fff575;
+}
+
+#app-camera-app .menu-header li {
+  display: inline;
+}
+
+/* Content */
+#app-camera-app .menu-content > div {
+  margin-bottom: 8px;
+}
+
+#app-camera-app .menu-content {
+  padding: 0 12px;
+  background: linear-gradient(to right, #111 0,rgba(34, 34, 34, 0) 34%, rgba(34, 34, 34, 0) 26%, #222 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(100% - 25px);
+}
+
+
+#app-camera-app .menu-content-button {
+  transition: 200ms;
+  margin-right: 10px;
+  width: 28px;
+  height: 28px;
+  background-color: #eee;
+  border: 2px solid #222;
+  border-radius: 50px;
+  
+  box-shadow:
+  0 0 0 3px hsl(0, 0%, 100%);
+}
+
+#app-camera-app .menu-content-button.active {
+  background-color: #e7e7e7;
+  box-shadow:
+  0 0 0 2px #ccc;
+}
+
+/* Switch button */
+.menu-content-switchButton > img {
+  width: 28px;
+  color: #fff;
+  filter: brightness(0) invert(1);
+}
+.menu-content-switchButton.active > img {
+  filter: brightness(0) invert(0.7);
+}
+
+/* image */
+.menu-content-image {
+  transition: 300ms;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.menu-content-image.active {
+  box-shadow: 0px 0px 0px 1px rgb(107, 107, 107);
+}

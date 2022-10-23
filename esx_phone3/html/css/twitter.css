@@ -1,0 +1,268 @@
+#app-home .menu-icon-twitter .menu-icon-inner {
+	background-color: #1da1f2;
+}
+
+textarea {
+    padding: 5px;
+    border: none;
+    font-size: 1em;
+    font-family: Helvetica, arial, sans-serif;
+    border-radius: 4px;
+    min-height: 30%;
+   height: 120%;
+   resize: none;
+   color: #656565;
+}
+
+#app-twitter .mainIcon {
+    width: 100%;
+    margin-top: 8px;
+    text-align: center;
+    color: #1da1f2;
+    margin-bottom: 40%;
+    z-index: 2;
+}
+
+#app-twitter > .app-inner {
+    padding: 0;
+    height: 100%;
+    background-color: #fefefe;
+    flex-direction: column;
+}
+
+/* Div before registering. */
+#app-twitter > .app-inner .twitterMainDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Twitter feed. */
+#twitterFeed {
+    font-size: 0.9em;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+
+#twitterFeed > .twitterFeedHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fefefe;
+    color: #1da1f2;
+}
+
+#twitterFeed > .twitterFeedHeader span {
+    color: #232323;
+}
+
+#twitterFeed > .twitterFeedHeader > img:last-child {
+    margin-right: 0;
+}
+
+
+#composeTweet > .twitterFeedHeader {
+    color: #1da1f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+#app-twitter > .app-inner .twitterFeedHeader button {
+    width: 35%;
+    padding: 5px;
+    font-size: 0.9em;
+    margin: 2px 0 -2px;
+    background-color: #96d7ff;
+}
+
+#twitterFeedList {
+    overflow: hidden;
+    color: #575c60;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: calc(100% - 48px);
+}
+
+#twitterFeedList > li {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#twitterFeedList > li b {
+	color: #1da1f2;
+	font-weight: 300;
+}
+
+#twitterFeedList > li .twitterHolder {
+    flex: 1;
+}
+
+#twitterFeedList > li .twitterHolderHeader {
+    display: flex;
+}
+/* Verified image */
+
+#twitterFeedList > li .twitterHolderHeader .verifiedImage {
+
+	width: 12px;
+	height: 12px;
+	margin: 1px 0px -5px;
+
+}
+
+
+#twitterFeedList > li .twitterHolderHeader > span:first-child {
+    color: #3b3b3b;
+    font-weight: 600;
+}
+#twitterFeedList > li .twitterHolderHeader > span:last-child {
+    font-size: 0.92em;
+    color: #888;
+}
+
+#twitterFeedList > li .twitterHolderHeader > span.tweetAtSpan {
+    margin-left: 4px;
+    font-size: 0.92em;
+    color: #888;
+}
+
+div.twitterDot {
+    border-radius: 50%;
+    height: 2px;
+    width: 2px;
+    background-color: #939393;
+    align-self: center;
+    margin: 0 3px;
+}
+
+#twitterFeed img, #composeTweet img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+/* Actual content */
+#app-twitter > .app-inner h2 {
+    padding: 0 13px;
+    margin-left: 8px;
+	margin-top: 30px;
+	margin-bottom: 0px;
+}
+
+#app-twitter > .app-inner button {
+    border: none;
+    margin-top: 15px;
+    width: 85%;
+    padding: 8px 0;
+    border-radius: 50px;
+    background-color: #1da1f2;
+    color: #fefefe;
+    font-size: 14px;
+    margin: 0 auto;
+    align-self: center;
+	margin-top: 25px;
+}
+
+#app-twitter > .app-inner .composeTweetDiv {
+    display: flex;
+    padding: 0 10px;
+}
+
+#app-twitter > .app-inner .composeTweetDiv textarea {
+    width: calc(100% - 50px);
+    max-width: calc(100% - 50px);
+    min-height: 320px;
+}
+#app-twitter #registerDiv button {
+    width: 82%;
+    margin: 15px 0;
+}
+
+#app-twitter > .app-inner button.active {
+    background-color: #5cb9f2;
+}
+
+
+
+/* Register div */
+#registerDiv {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    right: 100%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #fefefe;
+    color: #232323;
+}
+
+#registerDiv > .avbrytSpan {
+    color: #5cb9f2;
+    font-size: 13px;
+    margin: 12px 21px;
+}
+
+#registerDiv .inputDiv {
+    width: calc(90% - 21px);
+    border-bottom: 1px solid #cccccc;
+    margin-left: 21px;
+}
+#registerDiv .inputDiv i.green {
+    color: #bee1be;
+}
+
+#registerDiv .inputDiv i.red {
+    color: #e9a6a6;
+}
+
+#registerDiv input {
+    width: 85%;
+    margin-left: 1px;
+    margin-top: 4px;
+    padding: 12px 0px;
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+
+#registerDiv input:focus {
+    color: #1da1f2;
+}
+
+#registerDiv #imgurSpan {
+    font-size: 0.9em;
+    color: #5cb9f2;
+}
+
+
+/* active stuff */
+#registerDiv > .avbrytSpan.active {
+    color: #90c9c8;
+}
+
+#app-twitter li.iterableListItem.active {
+	color: black;
+}
+
+/* Colors */
+
+.inputDiv > .fa-check {
+	color: #1da1f2;
+}
+.inputDiv > .fa-times {
+	color: #f56b6b;
+}
+.inputDiv > .fa-circle-o-notch {
+	color: #b4c8dd;
+}
